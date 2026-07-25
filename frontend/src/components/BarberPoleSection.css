@@ -1,0 +1,324 @@
+.barberPoleSection {
+    --scroll-progress: 0;
+    position: relative;
+    min-height: 94vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 88px 6.2vw;
+    background:
+            radial-gradient(circle at 78% 46%, rgba(38, 92, 255, 0.2), transparent 23%),
+            radial-gradient(circle at 78% 54%, rgba(255, 34, 82, 0.16), transparent 25%),
+            radial-gradient(circle at 26% 24%, rgba(196, 147, 70, 0.12), transparent 28%),
+            linear-gradient(180deg, #050505 0%, #090909 48%, #050505 100%);
+    border-bottom: 1px solid var(--line);
+}
+
+.barberPoleSection::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+            repeating-linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.018) 0 1px,
+                    transparent 1px 112px
+            );
+    opacity: 0.42;
+}
+
+.barberPoleSection::after {
+    content: "";
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    width: 480px;
+    height: 480px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    border: 1px solid rgba(196, 147, 70, 0.14);
+    box-shadow:
+            0 0 90px rgba(196, 147, 70, 0.08),
+            inset 0 0 80px rgba(196, 147, 70, 0.045);
+    opacity: 0.9;
+}
+
+.poleContent {
+    position: relative;
+    z-index: 5;
+    width: min(1180px, 100%);
+    display: grid;
+    grid-template-columns: 1fr 390px;
+    align-items: center;
+    gap: 96px;
+}
+
+.poleText {
+    max-width: 680px;
+}
+
+.poleText .miniLabel {
+    margin-bottom: 20px;
+}
+
+.poleText h2 {
+    margin: 0 0 28px;
+    color: #ffffff;
+    font-family: Impact, "Arial Narrow", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: clamp(46px, 5.3vw, 78px);
+    line-height: 0.98;
+    text-shadow:
+            0 12px 36px rgba(0, 0, 0, 0.95),
+            0 0 18px rgba(196, 147, 70, 0.08);
+}
+
+.poleText p {
+    max-width: 520px;
+    color: rgba(245, 240, 233, 0.7);
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+.poleButton {
+    margin-top: 26px;
+    min-width: 280px;
+}
+
+.poleStage {
+    position: relative;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(calc((var(--scroll-progress, 0) - 0.5) * 46px));
+    will-change: transform;
+}
+
+.poleStage::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 560px;
+    border-radius: 999px;
+    background:
+            radial-gradient(circle at 50% 22%, rgba(255, 255, 255, 0.16), transparent 20%),
+            linear-gradient(180deg, rgba(196, 147, 70, 0.12), transparent 55%);
+    filter: blur(16px);
+    opacity: 0.65;
+}
+
+.barberPole {
+    position: relative;
+    width: 144px;
+    height: 535px;
+    border-radius: 90px;
+    overflow: hidden;
+    background: #101010;
+    border: 2px solid rgba(255, 255, 255, 0.24);
+    box-shadow:
+            0 0 34px rgba(42, 96, 255, 0.42),
+            0 0 68px rgba(255, 35, 76, 0.27),
+            0 0 110px rgba(196, 147, 70, 0.14),
+            0 46px 96px rgba(0, 0, 0, 0.84);
+    transform: rotate(0deg);
+}
+
+.barberPole::before {
+    content: "";
+    position: absolute;
+    inset: -130px;
+    background: repeating-linear-gradient(
+            -28deg,
+            #ffffff 0px,
+            #ffffff 19px,
+            #1f72ff 19px,
+            #1f72ff 42px,
+            #ffffff 42px,
+            #ffffff 57px,
+            #ff2558 57px,
+            #ff2558 80px
+    );
+    animation: poleSpin 2.25s linear infinite;
+    filter: saturate(1.22) brightness(1.12);
+    will-change: transform;
+}
+
+.barberPole::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.48),
+                    rgba(255, 255, 255, 0.14) 12%,
+                    transparent 28%,
+                    transparent 65%,
+                    rgba(0, 0, 0, 0.6)
+            ),
+            radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.44), transparent 34%);
+    mix-blend-mode: screen;
+}
+
+.poleGlass {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    border-radius: inherit;
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.28),
+                    transparent 17%,
+                    transparent 76%,
+                    rgba(255, 255, 255, 0.16)
+            );
+}
+
+.poleLight {
+    position: absolute;
+    inset: -38px;
+    z-index: 2;
+    background:
+            radial-gradient(circle at 50% 16%, rgba(255, 255, 255, 0.5), transparent 18%),
+            radial-gradient(circle at 50% 48%, rgba(42, 96, 255, 0.26), transparent 40%),
+            radial-gradient(circle at 50% 84%, rgba(255, 35, 76, 0.26), transparent 40%);
+    animation: poleGlowPulse 2.6s ease-in-out infinite alternate;
+}
+
+.poleCap {
+    position: absolute;
+    left: 50%;
+    z-index: 6;
+    width: 186px;
+    height: 34px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: linear-gradient(135deg, #2a2927, #fff7e8 45%, #6f6a60);
+    box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.6),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+}
+
+.poleCapTop {
+    top: -4px;
+}
+
+.poleCapBottom {
+    bottom: -4px;
+}
+
+.poleMarquee {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.poleMarqueeTop {
+    top: 18%;
+}
+
+.poleMarqueeBottom {
+    bottom: 10%;
+}
+
+.poleMarquee div {
+    display: flex;
+    gap: 60px;
+    width: max-content;
+    will-change: transform;
+}
+
+.poleMarquee span {
+    color: rgba(255, 255, 255, 0.026);
+    font-family: Impact, "Arial Narrow", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: clamp(42px, 6.5vw, 96px);
+}
+
+.poleMarqueeTop div {
+    transform: translateX(calc(var(--scroll-progress, 0) * -210px));
+}
+
+.poleMarqueeBottom div {
+    transform: translateX(calc(var(--scroll-progress, 0) * 180px - 260px));
+}
+
+@keyframes poleSpin {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        /* Desen birimi 80px (19+23+15+23) ama gradient -28deg açılı.
+           Dikey (translateY) hareketin deseni TAM bir birim kaydırması için
+           80 / cos(28deg) ≈ 90.61px gerekiyor; açı hesaba katılmazsa
+           döngü sonunda görünür bir "atlama" oluşuyor. */
+        transform: translateY(90.61px);
+    }
+}
+
+@keyframes poleGlowPulse {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 0.96;
+    }
+}
+
+@media (max-width: 900px) {
+    .barberPoleSection {
+        min-height: 110vh;
+        padding: 86px 24px;
+    }
+
+    .barberPoleSection::after {
+        right: auto;
+        top: 68%;
+        width: 340px;
+        height: 340px;
+    }
+
+    .poleContent {
+        grid-template-columns: 1fr;
+        gap: 52px;
+        text-align: center;
+    }
+
+    .poleText {
+        margin: 0 auto;
+    }
+
+    .poleText p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .poleButton {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .poleStage {
+        height: 470px;
+    }
+
+    .barberPole {
+        width: 108px;
+        height: 410px;
+    }
+
+    .poleCap {
+        width: 148px;
+    }
+}
